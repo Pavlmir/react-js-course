@@ -1,3 +1,19 @@
+import PropTypes from 'prop-types';
+
+const goodsItemProps = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  full_background: PropTypes.string.isRequired,
+  addToBasket: PropTypes.func.isRequired,
+};
+
+GoodsItem.propTypes = {
+  ...goodsItemProps,
+};
+
+
 function GoodsItem(props) {
   const {
     id,
@@ -38,4 +54,4 @@ function GoodsItem(props) {
   );
 }
 
-export { GoodsItem };
+export { GoodsItem, goodsItemProps };

@@ -90,7 +90,7 @@ function Shop() {
     })
       .then(response => response.json())
       .then(data => {
-        data.featured && setGoods(data.featured);
+        data.shop && setGoods(data.shop);
         setLoading(false);
       });
   }, []);
