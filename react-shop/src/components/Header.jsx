@@ -1,3 +1,5 @@
+import { GITHUB_URL } from '../constants';
+
 function Header() {
   return (
     <nav className="green darken-1">
@@ -8,7 +10,7 @@ function Header() {
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
             <a
-              href="https://github.com/michey85/react-shop"
+              href={ GITHUB_URL }
               target="_blank"
               rel="noreferrer"
             >
