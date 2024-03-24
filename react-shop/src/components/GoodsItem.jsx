@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { ShopContext } from '../context';
 
 const goodsItemProps = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  full_background: PropTypes.string.isRequired,
-  addToBasket: PropTypes.func.isRequired,
+  full_background: PropTypes.string.isRequired
 };
 
 GoodsItem.propTypes = {
@@ -20,9 +21,10 @@ function GoodsItem(props) {
     name,
     description,
     price,
-    full_background,
-    addToBasket = Function.prototype,
+    full_background
   } = props;
+   
+  const { addToBasket } = useContext(ShopContext);
 
   return (
     <div className="card">

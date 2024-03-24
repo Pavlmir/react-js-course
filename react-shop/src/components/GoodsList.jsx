@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ShopContext } from '../context';
 import { GoodsItem } from './GoodsItem';
 
 GoodsList.propTypes = {
@@ -16,31 +18,29 @@ GoodsList.propTypes = {
         })
       ).isRequired,
     })
-  ),
-  addToBasket: PropTypes.func.isRequired,
+  )
 };
 
-function GoodsList(props) {
-  const { goods = [], addToBasket = Function.prototype } = props;
+function GoodsList() {
+  const { goods = [] } = useContext(ShopContext);
 
   if (!goods.length) {
     return <h3>Nothing here</h3>;
   }
-
+   
   return (
-    <div className="goods">
-      {goods.map(item => (
-        <GoodsItem key={item.mainId} 
-                   id={item.mainId}
-                   name={item.displayName}
-                   description={item.displayDescription}
-                   price={item.price.finalPrice}
-                   full_background={item.displayAssets[0].full_background}
-                   addToBasket={addToBasket} 
-        />
-      ))}
+    <div className='goods'>
+        {goods.map((item) => (
+            <GoodsItem key={item.mainId} 
+            id={item.mainId}
+            name={item.displayName}
+            description={item.displayDescription}
+            price={item.price.finalPrice}
+            full_background={item.displayAssets[0].full_background}
+ />
+        ))}
     </div>
-  );
+);
 }
 
 export { GoodsList };
